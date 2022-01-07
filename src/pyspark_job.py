@@ -41,12 +41,13 @@ def calculate_pi(partitions, output_uri):
 
 
 if __name__ == "__main__":
+    logger.info(">>> spark job started") 
     parser = argparse.ArgumentParser()
     parser.add_argument(
         '--partitions', default=2, type=int,
-        help="The number of parallel partitions to use when calculating pi.")
+        help=6)
     parser.add_argument(
-        '--output_uri', help="The URI where output is saved, typically an S3 bucket.")
+        '--output_uri', help="s3://aws-emr-test-bucket/")
     args = parser.parse_args()
 
     calculate_pi(args.partitions, args.output_uri)
